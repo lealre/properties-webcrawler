@@ -19,3 +19,6 @@ redis = "^5.0.4"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.taskipy.tasks]
+main = "python src/main.py"
