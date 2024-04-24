@@ -1,0 +1,35 @@
+{
+    "links": {
+        "path": "https://casa.sapo.pt/",
+        "connector": "-",
+        "add_after": ""
+    },
+    "search": {
+        "tag": "div",
+        "class": "property-info-content"
+    },
+    "info": {
+        "type": "result.find('div', class_= 'property-type').get_text()",
+        "location": "result.find('div', class_= 'property-location').get_text()",
+        "features": "result.find('div', class_= 'property-features-text').get_text()",
+        "price": "result.find('div', class_= 'property-price-value').get_text()",
+        "offer_type": "result.find('div', class_= 'property-price-type').get_text()"
+    },
+    "pages": {
+        "next_page": {
+            "tag": "div",
+            "class": "pagination"
+        },
+        "last_page": {
+            "first": {
+                "tag": "span",
+                "class": "disabled"
+            },
+            "second": {
+                "tag": "i",
+                "class": "icon-forward"
+            }
+        },
+        "new_url": "'https://casa.sapo.pt' + next_page.find_all('a')[-1].get('href')"
+    }
+}
