@@ -1,0 +1,36 @@
+{
+    "links": {
+        "path": "https://www.imovirtual.com/arrendar/",
+        "connector": "-",
+        "add_after": "/?nrAdsPerPage=72"
+    },
+    "search": {
+        "tag": "div",
+        "class": "offer-item-details"
+    },
+    "info": {
+        "title": "result.find('span', class_= 'offer-item-title').get_text()",
+        "location": "result.find('p', class_= 'text-nowrap').get_text()",
+        "price": "result.find('li', class_= 'offer-item-price').get_text()",
+        "number_bedrooms": "result.find('li', class_= 'offer-item-rooms hidden-xs').get_text()",
+        "house_area": "result.find_all('li', class_= 'hidden-xs offer-item-area')[0].get_text()",
+        "ground_area": "result.find_all('li', class_= 'hidden-xs offer-item-area')[1].get_text()"
+    },
+    "pages": {
+        "next_page": {
+            "tag": "li",
+            "class": "pager-next"
+        },
+        "last_page": {
+            "first": {
+                "tag": "li",
+                "class": "pager-next"
+            },
+            "second": {
+                "tag": "a",
+                "class": "disabled"
+            }
+        },
+        "new_url": "next_page.find('a').get('href')"
+    }
+}
