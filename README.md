@@ -1,4 +1,4 @@
-# Web crawler to extract data from properties sites with noSQL databases - Redis and MongoDB
+# Web crawler to extract data from property websites using noSQL databases - Redis and MongoDB
 
 This project aims to develop a versatile web crawler for extracting data from property websites, utilizing NoSQL databases such as Redis and MongoDB.
 
