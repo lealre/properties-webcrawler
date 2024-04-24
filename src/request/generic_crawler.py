@@ -1,4 +1,5 @@
 from bs4 import BeautifulSoup
+from datetime import datetime
 import requests
 import json
 import pandas as pd
@@ -28,7 +29,7 @@ class GenericCrawler(AbstractCrawler):
         if self.configs['links']['add_after']:
             self.url = self.url + self.configs['links']['add_after']
         self.get_data(self.url)
-        return self.transform(self.data)
+        return self.add_features()
 
     def get_data(self, url: str):
         response = requests.get(url, headers= self.headers)
@@ -75,5 +76,9 @@ class GenericCrawler(AbstractCrawler):
                 info[step] = content
             self.data.append(info)
 
-    def transform(self, data: dict[str, Any]) -> pd.DataFrame:
-            return pd.DataFrame(data)
+    def add_features(self) -> pd.DataFrame:
+            df = pd.DataFrame(self.data)
+            df = df.assign(keyword_search = self.location)
+            df = df.assign(site = self.site)
+            df = df.assign(date_extracted = datetime.now().isoformat())
+            return df
