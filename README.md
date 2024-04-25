@@ -31,7 +31,29 @@ To establish connections with both Redis and MongoDB, the generic crawler inheri
 After extracting all the raw data, it is stored directly in the MongoDB database for further processing and analysis.
 
 ### Project folder structure
-
+```
+├── README.md
+├── docker-compose.yaml
+├── media
+│   ├── demo.gif
+│   └── diagram.png
+├── poetry.lock
+├── pyproject.toml
+├── redis_keys
+│   ├── imovirtual.json
+│   └── sapo.json
+├── src
+│   ├── main.py
+│   ├── request
+│   │   ├── default_crawler.py
+│   │   └── generic_crawler.py
+│   └── tools
+│       ├── mongodb.py
+│       └── redis.py
+└── tests
+    ├── test_integration.py
+    └── test_response.py
+```
 ## How to run this project
 
 ## Further tasks
