@@ -56,43 +56,94 @@ After extracting all the raw data, it is stored directly in the MongoDB database
 ```
 ## How to run this project
 
-How to execute this repository in a bash terminal using `pyenv` and `poetry`.
+All the steps below were created using a bash terminal. To local setup it uses `pyenv` and `poetry`.
 
-Before you begin, ensure that *measurements.txt* is inside `.gitignore`
+It is divided in 3 sequencial steps:
 
-1. Clone the repository:
+1. Clone the repository locally.
+2. Build docker containers and connect to Redis and MongoDB.
+3. Configure local setup.
+
+#### 1 - Clone the project locally
+
+1.1 -  Clone the repository:
 ```bash
 git clone https://github.com/lealre/properties-webcrawler.git
 ```
-2. Enter the folder:
+1.2 -  Enter the folder:
  ```bash
  cd properties-webcrawler
  ```
 
-3. Install Python version using pyenv:
+#### 2 - Build docker containers and connect to Redis and MongoDB
+
+Once inside the folder project, we build the containers for Redis and MongoDB using Docker:
+```bash
+docker compose up -d
+```
+
+Now that we have both databases running, the next step is to connect to them using a GUI. 
+
+**Redis**
+
+The GUI for REDIS used in this project was [Another Redis Desktop Manager](https://github.com/qishibo/AnotherRedisDesktopManager), where you can connect by using: 
+
+`host: 127.0.0.1` 
+
+`port: 6379`
+
+[Redis GUI Free App](https://onexlab-io.medium.com/redis-gui-free-app-e2e6fe67b9de)
+
+After connecting to the GUI, you can create the keys. The name of the keys correspond to the names of JSON files sored in [redis_keys](https://github.com/lealre/properties-webcrawler/tree/main/redis_keys) folder, and their content are their respectives values, where you can copy and paste setting it to JSON format.
+
+
+**MongoDB**
+
+The GUI for MongoDB used in this project was [Studio 3T Trial](https://studio3t.com/), where you can connect by clicking in connect and passing the link below:
+
+```
+mongodb://localhost:27017
+```
+
+ #### 3 -  Local Setup
+
+After connecting Redis and MongoDB, we configure the project setup and run it:
+
+3.1 -  Install Python version using pyenv:
 ```bash
 pyenv install 3.11.5
 ```
 
-4. Set Python local version:
+3.2 -  Set Python local version:
 ```bash
-pyenv install 3.11.5
+pyenv local 3.11.5
 ```
 
-5. Set poetry to use Python specific version:
+3.3 -  Create virtual enviroment with poetry:
 ```bash
 poetry env use 3.11.5
 ``` 
+```bash
+poetry shell
+```
 
-5. Install dependencies and activate the virtual environment:
+3.4 -  Install dependencies:
 ```bash
 poetry install --no-root
 ```
 ```bash
 poetry lock --no-update
 ```
+
+3.5 - Run the project:
 ```bash
-poetry shell
+task main
+```
+
+To run both integration and response tests:
+```bash
+task test_integrations # integration test
+task test_responses # response requests test to urls in Redis keys
 ```
 
 
