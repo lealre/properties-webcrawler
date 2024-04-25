@@ -10,5 +10,5 @@ from request.generic_crawler import GenericCrawler
 df_sapo = GenericCrawler(site= 'sapo').crawl('minde')
 print(df_sapo)
 
-# df_imo = GenericCrawler(site = 'imovirtual').crawl('evora')
-# print(df_imo)
+df_imo = GenericCrawler(site = 'imovirtual').crawl('evora')
+print(df_imo)
