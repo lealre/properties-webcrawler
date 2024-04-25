@@ -10,7 +10,8 @@ Using the pytest package, integration tests were also implemented with databases
 
 The project is based on [this repo](https://github.com/lvgalvao/data-engineering-roadmap/tree/main/05-redis-mongodb-esse-tal-de-nosql).
 
-<img src="media/diagram.png" width = 1000 />
+![](media/diagram.png)
+
 
 ## Context
 
@@ -33,3 +34,8 @@ After extracting all the raw data, it is stored directly in the MongoDB database
 ## How to run this project
 
 ## Further tasks
+
+* Since it stores raw data, it is necessary to add a transformation and manipulation step to clean the data;
+* There are no verifications to deal with entries that may already be stored in the database;
+* Adding more websites can test the versatility of the generic crawler and improve it;
+* A frontend interface can be created to return the data in a specific format to the user.
