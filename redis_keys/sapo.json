@@ -13,7 +13,8 @@
         "location": "result.find('div', class_= 'property-location').get_text()",
         "features": "result.find('div', class_= 'property-features-text').get_text()",
         "price": "result.find('div', class_= 'property-price-value').get_text()",
-        "offer_type": "result.find('div', class_= 'property-price-type').get_text()"
+        "offer_type": "result.find('div', class_= 'property-price-type').get_text()",
+        "offer_link": " 'https://casa.sapo.pt' + result.find('a', class_ = 'property-info').get('href')"
     },
     "pages": {
         "next_page": {
