@@ -14,7 +14,8 @@
         "price": "result.find('li', class_= 'offer-item-price').get_text()",
         "number_bedrooms": "result.find('li', class_= 'offer-item-rooms hidden-xs').get_text()",
         "house_area": "result.find_all('li', class_= 'hidden-xs offer-item-area')[0].get_text()",
-        "ground_area": "result.find_all('li', class_= 'hidden-xs offer-item-area')[1].get_text()"
+        "ground_area": "result.find_all('li', class_= 'hidden-xs offer-item-area')[1].get_text()",
+        "offer_link": "result.find('h3').find('a').get('href')"
     },
     "pages": {
         "next_page": {
