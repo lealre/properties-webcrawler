@@ -7,8 +7,6 @@ load_dotenv(".env")
 
 from request.generic_crawler import GenericCrawler
 
-df_sapo = GenericCrawler(site= 'sapo').crawl('minde')
-print(df_sapo)
+GenericCrawler(site= 'sapo').crawl('tomar')
+GenericCrawler(site = 'imovirtual').crawl('aveiro')
 
-df_imo = GenericCrawler(site = 'imovirtual').crawl('evora')
-print(df_imo)

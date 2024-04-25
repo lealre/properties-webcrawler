@@ -10,8 +10,7 @@ Using the pytest package, integration tests were also implemented with databases
 
 The project is based on [this repo](https://github.com/lvgalvao/data-engineering-roadmap/tree/main/05-redis-mongodb-esse-tal-de-nosql).
 
-![](media/diagram.png)
-
+<img src="media/demo.gif" width = 1000 />
 
 ## Context
 
@@ -20,6 +19,8 @@ By separating the generic Python web crawler from the site-specific details, we 
 Although this is a very useful approach, it won't always be possible to adapt all the websites to the same crawler structure. In cases like that, a specific solution will always be needed.
 
 ## How it works
+
+![](media/diagram.png)
 
 After receiving a specific website key identification, the script retrieves all the inputs from the Redis database in a JSON format. These inputs are responsible for the URL requests and capturing the HTML structure of the target site for extraction. It also receives a query specifying the location in Portugal from which to search for properties. 
 
