@@ -56,6 +56,46 @@ After extracting all the raw data, it is stored directly in the MongoDB database
 ```
 ## How to run this project
 
+How to execute this repository in a bash terminal using `pyenv` and `poetry`.
+
+Before you begin, ensure that *measurements.txt* is inside `.gitignore`
+
+1. Clone the repository:
+```bash
+git clone https://github.com/lealre/properties-webcrawler.git
+```
+2. Enter the folder:
+ ```bash
+ cd properties-webcrawler
+ ```
+
+3. Install Python version using pyenv:
+```bash
+pyenv install 3.11.5
+```
+
+4. Set Python local version:
+```bash
+pyenv install 3.11.5
+```
+
+5. Set poetry to use Python specific version:
+```bash
+poetry env use 3.11.5
+``` 
+
+5. Install dependencies and activate the virtual environment:
+```bash
+poetry install --no-root
+```
+```bash
+poetry lock --no-update
+```
+```bash
+poetry shell
+```
+
+
 ## Further tasks
 
 * Since it stores raw data, it is necessary to add a transformation and manipulation step to clean the data;
