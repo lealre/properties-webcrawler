@@ -27,6 +27,9 @@ class MongoConnection:
         self._client = MongoClient(self.host, self.port)
         self._db = self._client[self.database_name]
         self._collection = self._db[self.collection_name]
+    
+    def server_info(self):
+        return self._client.server_info()
 
     def save_dataframe(self, df):
         data = df.to_dict(orient='records') # save to JSON
