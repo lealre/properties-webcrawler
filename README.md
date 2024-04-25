@@ -6,7 +6,11 @@ The crawler retrieves specific tasks or inputs from Redis, allowing data extract
 
 Data extraction is performed using the requests library, and the raw data is stored directly in MongoDB for further processing and analysis.
 
-The project is very based on [this repo](https://github.com/lvgalvao/data-engineering-roadmap/tree/main/05-redis-mongodb-esse-tal-de-nosql).
+Using the pytest package, integration tests were also implemented with databases and a response test for all the URL links present in keys from Redis
+
+The project is based on [this repo](https://github.com/lvgalvao/data-engineering-roadmap/tree/main/05-redis-mongodb-esse-tal-de-nosql).
+
+<img src="media/diagram.png" width = 1000 />
 
 ## Context
 
@@ -15,6 +19,14 @@ By separating the generic Python web crawler from the site-specific details, we 
 Although this is a very useful approach, it won't always be possible to adapt all the websites to the same crawler structure. In cases like that, a specific solution will always be needed.
 
 ## How it works
+
+After receiving a specific website key identification, the script retrieves all the inputs from the Redis database in a JSON format. These inputs are responsible for the URL requests and capturing the HTML structure of the target site for extraction. It also receives a query specifying the location in Portugal from which to search for properties. 
+
+The extraction process utilizes the BeautifulSoup package, and through a recursive function, it identifies additional pages for extraction if present.
+
+To establish connections with both Redis and MongoDB, the generic crawler inherits from an abstract class.
+
+After extracting all the raw data, it is stored directly in the MongoDB database for further processing and analysis.
 
 ### Project folder structure
 
